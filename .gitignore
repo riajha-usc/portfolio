@@ -1,0 +1,18 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+
+# Node (if you add tooling later)
+node_modules/
+
+# Logs
+*.log
+
+.prettierrc
+node_modules/
+dist/
+package-lock.json
