@@ -1,385 +1,471 @@
 <!doctype html>
 <html lang="en" data-theme="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ria Jha</title>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400&display=swap" rel="stylesheet"/>
-    <style>
-      :root {
-        --bg: #0e0e11; --surface: #161619; --border: #2a2a2f;
-        --text: #e8e6e3; --text-secondary: #9a9898; --text-dim: #5e5e60;
-        --accent: #a78bfa; --accent-dim: rgba(167,139,250,0.12); --green: #6ee7b7;
-        --nav-bg: rgba(14,14,17,0.85);
-        --serif: "Instrument Serif",Georgia,serif;
-        --sans: "Geist",-apple-system,sans-serif;
-        --mono: "Geist Mono",monospace;
-      }
-      [data-theme="light"] {
-        --bg: #f9f8f6; --surface: #ffffff; --border: #e2e0dc;
-        --text: #1a1a1a; --text-secondary: #555350; --text-dim: #999693;
-        --accent: #7c3aed; --accent-dim: rgba(124,58,237,0.08); --green: #059669;
-        --nav-bg: rgba(249,248,246,0.85);
-      }
-      * { margin:0; padding:0; box-sizing:border-box; }
-      html { scroll-behavior:smooth; }
-      body { font-family:var(--sans); color:var(--text); background:var(--bg); line-height:1.6; -webkit-font-smoothing:antialiased; transition:background 0.3s,color 0.3s; }
-      ::selection { background:var(--accent); color:var(--bg); }
-      a { color:var(--accent); text-decoration:none; transition:opacity 0.2s; }
-      a:hover { opacity:0.8; }
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ria Jha - Software Engineer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg:#0e0e11; --surface:#161619; --surface2:#1c1c20; --border:#2a2a2f;
+      --text:#e8e6e3; --text-secondary:#9a9898; --text-dim:#5e5e60;
+      --accent:#a78bfa; --accent-dim:rgba(167,139,250,0.12); --accent-glow:rgba(167,139,250,0.06);
+      --green:#6ee7b7; --green-dim:rgba(110,231,183,0.12);
+      --amber:#fbbf24; --amber-dim:rgba(251,191,36,0.1);
+      --nav-bg:rgba(14,14,17,0.9);
+      --serif:"Instrument Serif",Georgia,serif;
+      --sans:"Geist",-apple-system,sans-serif;
+      --mono:"Geist Mono",monospace;
+      --radius:14px; --radius-sm:8px;
+    }
+    [data-theme="light"] {
+      --bg:#f5f4f1; --surface:#ffffff; --surface2:#f0ede8; --border:#e2e0dc;
+      --text:#1a1a1a; --text-secondary:#555350; --text-dim:#999693;
+      --accent:#6d28d9; --accent-dim:rgba(109,40,217,0.08); --accent-glow:rgba(109,40,217,0.04);
+      --green:#047857; --green-dim:rgba(4,120,87,0.08);
+      --amber:#b45309; --amber-dim:rgba(180,83,9,0.08);
+      --nav-bg:rgba(245,244,241,0.9);
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--sans);color:var(--text);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;transition:background .3s,color .3s}
+    ::selection{background:var(--accent);color:var(--bg)}
+    a{color:var(--accent);text-decoration:none;transition:opacity .2s}
+    a:hover{opacity:.8}
 
-      /* NAV */
-      nav { position:fixed; top:0; left:0; right:0; z-index:100; background:var(--nav-bg); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border-bottom:1px solid var(--border); }
-      .nav-inner { max-width:1100px; margin:0 auto; padding:0 32px; height:60px; display:flex; align-items:center; justify-content:flex-end; gap:28px; }
-      .nav-links { display:flex; gap:28px; align-items:center; }
-      .nav-links a { color:var(--text-secondary); font-size:0.8rem; font-weight:500; letter-spacing:0.02em; transition:color 0.2s; }
-      .nav-links a:hover { color:var(--text); opacity:1; }
-      .theme-toggle { background:none; border:1px solid var(--border); border-radius:8px; padding:6px 10px; cursor:pointer; color:var(--text-secondary); font-size:0.8rem; font-family:var(--sans); transition:all 0.2s; display:flex; align-items:center; gap:6px; }
-      .theme-toggle:hover { border-color:var(--text-dim); color:var(--text); }
+    /* ── NAV ── */
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--nav-bg);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+    .nav-inner{max-width:1100px;margin:0 auto;padding:0 32px;height:60px;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{font-family:var(--serif);font-size:1.05rem;color:var(--text);opacity:.7;letter-spacing:-.01em}
+    .nav-links{display:flex;gap:24px;align-items:center}
+    .nav-links a{color:var(--text-secondary);font-size:.8rem;font-weight:500;letter-spacing:.02em;transition:color .2s;opacity:1}
+    .nav-links a:hover{color:var(--text)}
+    .theme-toggle{background:none;border:1px solid var(--border);border-radius:var(--radius-sm);padding:5px 10px;cursor:pointer;color:var(--text-secondary);font-size:.75rem;font-family:var(--sans);transition:all .2s;display:flex;align-items:center;gap:5px}
+    .theme-toggle:hover{border-color:var(--text-dim);color:var(--text)}
 
-      /* LAYOUT */
-      .wrap { max-width:1100px; margin:0 auto; padding:0 32px; }
-      section { padding:120px 0; }
+    /* ── LAYOUT ── */
+    .wrap{max-width:1100px;margin:0 auto;padding:0 32px}
+    section{padding:110px 0}
 
-      /* HERO */
-      .hero { min-height:100vh; display:flex; align-items:center; padding-top:60px; position:relative; overflow:hidden; }
-      .hero::before { content:""; position:absolute; top:-200px; right:-200px; width:600px; height:600px; background:radial-gradient(circle,rgba(167,139,250,0.06) 0%,transparent 70%); pointer-events:none; }
-      .hero-inner { display:grid; grid-template-columns:auto 1fr; gap:80px; align-items:center; }
-      .hero-content { opacity:0; animation:fadeIn 0.8s ease 0.1s forwards; }
+    /* ── HERO ── */
+    .hero{min-height:100vh;display:flex;align-items:center;padding-top:60px;position:relative;overflow:hidden}
+    .hero::before{content:"";position:absolute;top:-300px;right:-300px;width:700px;height:700px;background:radial-gradient(circle,var(--accent-glow) 0%,transparent 70%);pointer-events:none}
+    .hero::after{content:"";position:absolute;bottom:-200px;left:-100px;width:500px;height:500px;background:radial-gradient(circle,var(--green-dim) 0%,transparent 70%);pointer-events:none;opacity:.4}
+    .hero-inner{display:grid;grid-template-columns:auto 1fr;gap:80px;align-items:center}
+    .hero-aside{opacity:0;animation:fadeUp .9s ease .1s forwards;display:flex;flex-direction:column;align-items:center;gap:14px;flex-shrink:0}
+    .hero-photo{width:260px;height:300px;border-radius:18px;object-fit:cover;object-position:top center;border:2px solid var(--border);box-shadow:0 0 0 6px var(--accent-dim),0 24px 60px rgba(0,0,0,.25);display:block}
+    .hero-name{font-family:var(--serif);font-size:1.45rem;font-weight:400;color:var(--text);text-align:center;letter-spacing:-.01em}
+    .hero-title{font-family:var(--mono);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);text-align:center}
+    .hero-content{opacity:0;animation:fadeUp .9s ease .25s forwards}
+    .hero-badge{display:inline-flex;align-items:center;gap:9px;font-size:.78rem;font-weight:500;color:var(--green);background:var(--green-dim);padding:6px 15px;border-radius:100px;margin-bottom:28px;border:1px solid rgba(110,231,183,.2)}
+    .hero-badge .dot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:pulse 2.2s ease infinite;flex-shrink:0}
+    .hero h1{font-family:var(--serif);font-size:clamp(2.4rem,5vw,4rem);font-weight:400;line-height:1.08;letter-spacing:-.025em;margin-bottom:24px}
+    .hero h1 em{font-style:italic;color:var(--accent)}
+    .hero-bio{font-size:1rem;color:var(--text-secondary);max-width:500px;line-height:1.75;margin-bottom:32px}
+    .hero-meta{display:flex;flex-wrap:wrap;gap:10px 24px;font-size:.82rem;color:var(--text-dim);margin-bottom:32px}
+    .hero-meta span{display:flex;align-items:center;gap:6px}
+    .hero-meta svg{width:13px;height:13px;stroke:var(--text-dim);fill:none;stroke-width:1.8;flex-shrink:0}
+    .hero-actions{display:flex;gap:10px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:7px;padding:10px 20px;border-radius:10px;font-size:.82rem;font-weight:500;font-family:var(--sans);text-decoration:none;transition:all .2s;cursor:pointer;border:none;white-space:nowrap}
+    .btn-primary{background:var(--accent);color:#fff}
+    .btn-primary:hover{opacity:.9;transform:translateY(-1px)}
+    .btn-ghost{background:transparent;color:var(--text-secondary);border:1px solid var(--border)}
+    .btn-ghost:hover{border-color:var(--text-dim);color:var(--text);opacity:1}
+    .btn svg{width:14px;height:14px;flex-shrink:0}
+    .btn-ghost svg{fill:currentColor}
+    .btn-download svg{fill:none;stroke:currentColor;stroke-width:2}
 
-      /* PHOTO + NAME stacked on right */
-      .hero-aside { opacity:0; animation:fadeIn 0.8s ease 0.3s forwards; display:flex; flex-direction:column; align-items:center; gap:16px; }
-      .hero-aside img { width:280px; height:320px; border-radius:16px; object-fit:cover; object-position:top center; border:3px solid var(--border); box-shadow:0 0 0 6px var(--accent-dim); display:block; }
-      .hero-aside-name { font-family:var(--serif); font-size:1.6rem; font-weight:400; color:var(--text); text-align:center; letter-spacing:-0.01em; }
-      .hero-aside-title { font-family:var(--mono); font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); text-align:center; }
+    /* ── SECTION HEADERS ── */
+    .sh{margin-bottom:52px}
+    .sh-label{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+    .sh h2{font-family:var(--serif);font-size:2.4rem;font-weight:400;letter-spacing:-.015em}
 
-      .hero-greeting { display:inline-flex; align-items:center; gap:10px; font-size:0.82rem; font-weight:500; color:var(--accent); background:var(--accent-dim); padding:6px 16px; border-radius:100px; margin-bottom:32px; }
-      .hero-greeting .dot { width:7px; height:7px; background:var(--green); border-radius:50%; animation:pulse 2s ease infinite; }
-      .hero h1 { font-family:var(--serif); font-size:clamp(2.6rem,5.5vw,4.4rem); font-weight:400; line-height:1.1; letter-spacing:-0.02em; margin-bottom:28px; }
-      .hero h1 em { font-style:italic; color:var(--accent); }
-      .hero-bio { font-size:1.05rem; color:var(--text-secondary); max-width:520px; line-height:1.7; margin-bottom:40px; }
-      .hero-meta { display:flex; flex-wrap:wrap; gap:12px 28px; font-size:0.85rem; color:var(--text-dim); margin-bottom:36px; }
-      .hero-meta span { display:flex; align-items:center; gap:6px; }
-      .hero-meta svg { width:14px; height:14px; stroke:var(--text-dim); fill:none; stroke-width:2; }
-      .hero-actions { display:flex; gap:12px; flex-wrap:wrap; }
-      .btn { display:inline-flex; align-items:center; gap:8px; padding:12px 24px; border-radius:10px; font-size:0.85rem; font-weight:500; font-family:var(--sans); text-decoration:none; transition:all 0.2s; cursor:pointer; border:none; }
-      .btn-primary { background:var(--accent); color:#fff; }
-      .btn-primary:hover { opacity:0.9; transform:translateY(-1px); }
-      .btn-ghost { background:transparent; color:var(--text-secondary); border:1px solid var(--border); }
-      .btn-ghost:hover { border-color:var(--text-dim); color:var(--text); opacity:1; }
-      .btn-ghost svg { width:15px; height:15px; fill:currentColor; }
-      .btn-download svg { width:15px; height:15px; stroke:currentColor; fill:none; stroke-width:2; }
+    /* ── EDUCATION ── */
+    .edu-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+    .edu-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:28px;transition:border-color .25s,transform .25s}
+    .edu-card:hover{border-color:var(--text-dim);transform:translateY(-2px)}
+    .edu-icon{width:38px;height:38px;background:var(--accent-dim);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;font-size:1rem}
+    .edu-card h3{font-size:.98rem;font-weight:600;margin-bottom:4px;line-height:1.35}
+    .edu-card .degree{font-size:.87rem;color:var(--text-secondary);margin-bottom:8px}
+    .edu-card .dates{font-family:var(--mono);font-size:.72rem;color:var(--text-dim);margin-bottom:10px}
+    .edu-gpa{font-family:var(--mono);font-size:.72rem;color:var(--accent);margin-bottom:8px;margin-top:2px}
+    .edu-courses{font-size:.76rem;color:var(--text-dim);line-height:1.65;border-top:1px solid var(--border);padding-top:10px;margin-top:8px}
+    .edu-courses strong{color:var(--text-secondary)}
 
-      /* SECTION HEADERS */
-      .sh { margin-bottom:56px; }
-      .sh-label { font-family:var(--mono); font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); margin-bottom:12px; }
-      .sh h2 { font-family:var(--serif); font-size:2.5rem; font-weight:400; letter-spacing:-0.01em; }
+    /* ── EXPERIENCE ── */
+    .exp-list{display:flex;flex-direction:column}
+    .exp-item{display:grid;grid-template-columns:1fr 2.4fr;gap:48px;padding:36px 0;border-bottom:1px solid var(--border)}
+    .exp-item:first-child{border-top:1px solid var(--border)}
+    .exp-left h3{font-size:.98rem;font-weight:600;margin-bottom:4px}
+    .exp-left .company{font-size:.87rem;color:var(--text-secondary);margin-bottom:6px}
+    .exp-left .company-desc{font-size:.77rem;color:var(--text-dim);line-height:1.55}
+    .exp-right .dates{font-family:var(--mono);font-size:.7rem;color:var(--text-dim);margin-bottom:14px}
+    .exp-bullets{list-style:none;display:flex;flex-direction:column;gap:10px}
+    .exp-bullets li{font-size:.88rem;color:var(--text-secondary);line-height:1.7;padding-left:16px;position:relative}
+    .exp-bullets li::before{content:"";position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:var(--accent);opacity:.45}
 
-      /* EDUCATION */
-      .edu-cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:20px; }
-      .edu-card { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:32px; transition:border-color 0.3s; }
-      .edu-card:hover { border-color:var(--text-dim); }
-      .edu-icon { width:40px; height:40px; background:var(--accent-dim); border-radius:10px; display:flex; align-items:center; justify-content:center; margin-bottom:20px; font-size:1.1rem; }
-      .edu-card h3 { font-size:1.05rem; font-weight:600; margin-bottom:4px; }
-      .edu-card .degree { font-size:0.9rem; color:var(--text-secondary); margin-bottom:10px; }
-      .edu-card .dates { font-family:var(--mono); font-size:0.75rem; color:var(--text-dim); }
+    /* ── PROJECTS ── */
+    .project-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .project-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:28px;display:flex;flex-direction:column;transition:all .3s ease;position:relative;overflow:hidden}
+    .project-card::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,var(--accent-glow),transparent 60%);opacity:0;transition:opacity .3s}
+    .project-card:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:0 16px 48px rgba(0,0,0,.2)}
+    .project-card:hover::before{opacity:1}
+    .project-card.featured{grid-column:1/-1}
+    .project-tag{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:.63rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);background:var(--accent-dim);padding:4px 10px;border-radius:6px;margin-bottom:14px;align-self:flex-start;border:1px solid rgba(167,139,250,.15)}
+    .project-tag.green{color:var(--green);background:var(--green-dim);border-color:rgba(110,231,183,.15)}
+    .project-tag.amber{color:var(--amber);background:var(--amber-dim);border-color:rgba(251,191,36,.15)}
+    .project-card h3{font-size:1.08rem;font-weight:600;margin-bottom:10px;line-height:1.3;position:relative}
+    .project-card p{font-size:.86rem;color:var(--text-secondary);line-height:1.7;flex:1;margin-bottom:18px;position:relative}
+    .project-stack{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;position:relative}
+    .project-stack span{font-family:var(--mono);font-size:.65rem;color:var(--text-dim);background:rgba(128,128,128,.07);padding:3px 9px;border-radius:5px;border:1px solid var(--border)}
+    .project-links{display:flex;gap:14px;flex-wrap:wrap;position:relative}
+    .project-link{font-size:.8rem;font-weight:500;display:inline-flex;align-items:center;gap:5px;color:var(--accent)}
+    .project-link svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2;transition:transform .2s}
+    .project-card:hover .project-link svg{transform:translate(2px,-2px)}
 
-      /* PROJECTS */
-      .project-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
-      .project-card:first-child { grid-column:1/-1; }
-      .project-card { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:32px; display:flex; flex-direction:column; transition:all 0.3s ease; }
-      .project-card:hover { border-color:var(--accent); transform:translateY(-3px); box-shadow:0 12px 40px rgba(0,0,0,0.15); }
-      .project-card .tag { display:inline-block; font-family:var(--mono); font-size:0.65rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--accent); background:var(--accent-dim); padding:4px 10px; border-radius:6px; margin-bottom:16px; align-self:flex-start; }
-      .project-card h3 { font-size:1.15rem; font-weight:600; margin-bottom:10px; line-height:1.35; }
-      .project-card p { font-size:0.88rem; color:var(--text-secondary); line-height:1.65; flex:1; margin-bottom:20px; }
-      .project-stack { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:16px; }
-      .project-stack span { font-family:var(--mono); font-size:0.68rem; color:var(--text-dim); background:rgba(128,128,128,0.08); padding:4px 10px; border-radius:6px; border:1px solid var(--border); }
-      .project-link { font-size:0.82rem; font-weight:500; display:inline-flex; align-items:center; gap:6px; }
-      .project-link svg { width:13px; height:13px; stroke:currentColor; fill:none; stroke-width:2; transition:transform 0.2s; }
-      .project-card:hover .project-link svg { transform:translate(2px,-2px); }
+    /* ── AWARDS ── */
+    .awards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+    .award-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:26px;transition:all .25s;position:relative;overflow:hidden}
+    .award-card::after{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:var(--accent);opacity:0;transition:opacity .25s}
+    .award-card:hover{border-color:var(--text-dim);transform:translateY(-2px)}
+    .award-card:hover::after{opacity:1}
+    .award-placement{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+    .award-card h3{font-size:1rem;font-weight:600;margin-bottom:6px;line-height:1.35}
+    .award-card .award-event{font-size:.83rem;color:var(--text-secondary);margin-bottom:8px}
+    .award-card .award-desc{font-size:.8rem;color:var(--text-dim);line-height:1.6}
+    .award-year{font-family:var(--mono);font-size:.68rem;color:var(--text-dim);margin-top:12px}
 
-      /* EXPERIENCE */
-      .exp-list { display:flex; flex-direction:column; }
-      .exp-item { display:grid; grid-template-columns:1fr 2.2fr; gap:40px; padding:36px 0; border-bottom:1px solid var(--border); }
-      .exp-item:first-child { border-top:1px solid var(--border); }
-      .exp-left h3 { font-size:1rem; font-weight:600; margin-bottom:4px; }
-      .exp-left .company { font-size:0.88rem; color:var(--text-secondary); margin-bottom:6px; }
-      .exp-left .company-desc { font-size:0.78rem; color:var(--text-dim); line-height:1.5; }
-      .exp-right .dates { font-family:var(--mono); font-size:0.72rem; color:var(--text-dim); margin-bottom:12px; }
-      .exp-bullets { list-style:none; display:flex; flex-direction:column; gap:10px; }
-      .exp-bullets li { font-size:0.9rem; color:var(--text-secondary); line-height:1.7; padding-left:16px; position:relative; }
-      .exp-bullets li::before { content:''; position:absolute; left:0; top:11px; width:5px; height:5px; border-radius:50%; background:var(--accent); opacity:0.5; }
+    /* ── SKILLS ── */
+    .skills-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:28px}
+    .skill-col h3{font-size:.7rem;font-family:var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+    .skill-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+    .skill-col li{font-size:.86rem;color:var(--text-secondary);padding-left:13px;position:relative;line-height:1.4}
+    .skill-col li::before{content:"";position:absolute;left:0;top:9px;width:4px;height:4px;border-radius:50%;background:var(--border)}
 
-      /* SKILLS */
-      .skills-cols { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:32px; }
-      .skill-col h3 { font-size:0.75rem; font-family:var(--mono); letter-spacing:0.08em; text-transform:uppercase; color:var(--accent); margin-bottom:16px; padding-bottom:12px; border-bottom:1px solid var(--border); }
-      .skill-col ul { list-style:none; display:flex; flex-direction:column; gap:10px; }
-      .skill-col li { font-size:0.88rem; color:var(--text-secondary); padding-left:14px; position:relative; }
-      .skill-col li::before { content:""; position:absolute; left:0; top:10px; width:4px; height:4px; border-radius:50%; background:var(--border); }
+    /* ── FOOTER ── */
+    footer{border-top:1px solid var(--border);padding:52px 0}
+    .footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}
+    .footer-msg{font-family:var(--serif);font-size:1.5rem;line-height:1.2}
+    .footer-msg em{font-style:italic;color:var(--accent)}
+    .footer-links{display:flex;gap:20px}
+    .footer-links a{color:var(--text-dim);font-size:.82rem;font-weight:500;transition:color .2s;opacity:1}
+    .footer-links a:hover{color:var(--text)}
+    .footer-copy{width:100%;font-family:var(--mono);font-size:.68rem;color:var(--text-dim);margin-top:20px}
 
-      /* FOOTER */
-      footer { border-top:1px solid var(--border); padding:48px 0; }
-      .footer-inner { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px; }
-      .footer-msg { font-family:var(--serif); font-size:1.6rem; }
-      .footer-msg em { font-style:italic; color:var(--accent); }
-      .footer-links { display:flex; gap:20px; }
-      .footer-links a { color:var(--text-dim); font-size:0.82rem; font-weight:500; transition:color 0.2s; }
-      .footer-links a:hover { color:var(--text); opacity:1; }
-      .footer-copy { width:100%; font-family:var(--mono); font-size:0.7rem; color:var(--text-dim); margin-top:24px; }
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.9)}}
+    .anim{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}
+    .anim.show{opacity:1;transform:translateY(0)}
 
-      /* ANIMATIONS */
-      @keyframes fadeIn { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
-      @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
-      .anim { opacity:0; transform:translateY(20px); transition:opacity 0.6s ease,transform 0.6s ease; }
-      .anim.show { opacity:1; transform:translateY(0); }
+    /* ── RESPONSIVE ── */
+    @media(max-width:900px){
+      .hero-inner{grid-template-columns:1fr;gap:36px}
+      .hero-aside{flex-direction:row;justify-content:flex-start;gap:20px;align-items:flex-end}
+      .hero-photo{width:140px;height:165px;border-radius:12px}
+      .hero-name,.hero-title{text-align:left}
+      .project-grid{grid-template-columns:1fr}
+      .project-card.featured{grid-column:auto}
+      .exp-item{grid-template-columns:1fr;gap:10px}
+    }
+    @media(max-width:600px){
+      section{padding:80px 0}.wrap{padding:0 18px}.nav-inner{padding:0 18px}
+      .nav-links{gap:14px}.hero h1{font-size:2.1rem}
+      .sh h2{font-size:1.9rem}.footer-msg{font-size:1.2rem}
+      .hero-actions{gap:8px}
+    }
+  </style>
+</head>
+<body>
 
-      /* RESPONSIVE */
-      @media(max-width:768px) {
-        section{padding:80px 0} .wrap{padding:0 20px} .nav-inner{padding:0 20px}
-        .project-grid{grid-template-columns:1fr} .project-card:first-child{grid-column:auto}
-        .exp-item{grid-template-columns:1fr;gap:8px}
-        .nav-links{gap:12px} .hero h1{font-size:2rem}
-        .footer-msg{font-size:1.2rem}
-        .hero-inner{grid-template-columns:1fr; gap:40px}
-        .hero-aside{flex-direction:row; justify-content:flex-start; gap:20px}
-        .hero-aside img{width:160px;height:190px;border-radius:12px}
-        .hero-aside-name{font-size:1.3rem; text-align:left}
-        .hero-aside-title{text-align:left}
-      }
-    </style>
-  </head>
-  <body>
-    <nav>
-      <div class="nav-inner">
-        <div class="nav-links">
-          <a href="#education">Education</a>
-          <a href="#projects">Projects</a>
-          <a href="#experience">Experience</a>
-          <a href="#skills">Skills</a>
-          <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">☀️ Light</button>
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">Ria Jha</div>
+    <div class="nav-links">
+      <a href="#education">Education</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#awards">Awards</a>
+      <a href="#skills">Skills</a>
+      <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">☀️ Light</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-inner">
+      <div class="hero-aside">
+        <img class="hero-photo" src="photo.jpg" alt="Ria Jha"/>
+        <div>
+          <div class="hero-name">Ria Jha</div>
+          <div class="hero-title">Software Engineer</div>
         </div>
       </div>
-    </nav>
-
-    <!-- HERO -->
-    <section class="hero">
-      <div class="wrap">
-        <div class="hero-inner">
-          <!-- PHOTO + NAME on left -->
-          <div class="hero-aside">
-            <img src="photo.jpg" alt="Ria Jha"/>
-            <div class="hero-aside-name">Ria Jha</div>
-            <div class="hero-aside-title">Software Engineer</div>
-          </div>
-
-          <div class="hero-content">
-            <div class="hero-greeting">
-              <span class="dot"></span>
-              Open to SWE Intern roles, Summer / Fall 2026
-            </div>
-            <h1>Software Engineer<br>who builds <em>distributed systems at scale.</em></h1>
-            <p class="hero-bio">
-              4 years of industry experience building distributed systems and scalable backend infrastructure at Deutsche Bank DWS. Currently at USC pursuing M.S. Computer Science, with a focus on AI/ML and distributed systems.
-            </p>
-            <div class="hero-meta">
-              <span>
-                <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                Los Angeles, CA, USA
-              </span>
-              <span>
-                <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5"/></svg>
-                USC &middot; M.S. Computer Science &middot; 2025-Present
-              </span>
-            </div>
-            <div class="hero-actions">
-              <a href="https://mail.google.com/mail/?view=cm&to=riajha02@gmail.com" target="_blank" class="btn btn-primary">Get in touch</a>
-              <a href="Ria_Jha_Intern_Resume.pdf" download class="btn btn-ghost btn-download">
-                <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                Resume
-              </a>
-              <a href="https://github.com/riajha-usc" target="_blank" class="btn btn-ghost">
-                <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" fill="currentColor"/></svg>
-                GitHub
-              </a>
-              <a href="https://www.linkedin.com/in/ria-jha-17917315a/" target="_blank" class="btn btn-ghost">
-                <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" fill="currentColor"/></svg>
-                LinkedIn
-              </a>
-            </div>
-          </div>
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="dot"></span>
+          Open to SWE Intern roles · Summer / Fall 2026
+        </div>
+        <h1>Software Engineer<br>who builds <em>distributed<br>systems at scale.</em></h1>
+        <p class="hero-bio">
+          Industry-experienced software engineer who has shipped production infrastructure at scale and is now deepening expertise in AI, agentic systems, and game development at USC. I care about systems that are reliable, well-designed, and built to last.
+        </p>
+        <div class="hero-meta">
+          <span>
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Los Angeles, CA
+          </span>
+          <span>
+            <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5"/></svg>
+            USC · M.S. Computer Science · 2025–2027
+          </span>
+        </div>
+        <div class="hero-actions">
+          <a href="https://mail.google.com/mail/?view=cm&to=riajha02@gmail.com" target="_blank" class="btn btn-primary">Get in touch</a>
+          <a href="Ria_Jha_Intern_Resume.pdf" download class="btn btn-ghost btn-download">
+            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Resume
+          </a>
+          <a href="https://github.com/riajha-usc" target="_blank" class="btn btn-ghost">
+            <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/ria-jha-17917315a/" target="_blank" class="btn btn-ghost">
+            <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <!-- EDUCATION -->
-    <section id="education">
-      <div class="wrap">
-        <div class="sh anim"><div class="sh-label">Education</div><h2>Where I studied</h2></div>
-        <div class="edu-cards">
-          <div class="edu-card anim">
-            <div class="edu-icon">🎓</div>
-            <h3>University of Southern California</h3>
-            <div class="degree">M.S. in Computer Science</div>
-            <div class="dates">Aug 2025 - Present &middot; Los Angeles, CA</div>
-          </div>
-          <div class="edu-card anim">
-            <div class="edu-icon">🏛</div>
-            <h3>Indira Gandhi Delhi Technical University for Women</h3>
-            <div class="degree">B.Tech in Information Technology</div>
-            <div class="dates">Aug 2017 - Aug 2021 &middot; Delhi, India</div>
-          </div>
+<!-- EDUCATION -->
+<section id="education">
+  <div class="wrap">
+    <div class="sh anim"><div class="sh-label">Education</div><h2>Where I studied</h2></div>
+    <div class="edu-cards">
+      <div class="edu-card anim">
+        <div class="edu-icon">🎓</div>
+        <h3>University of Southern California</h3>
+        <div class="degree">M.S. in Computer Science</div>
+        <div class="dates">Aug 2025 - May 2027 · Los Angeles, CA</div>
+        <div class="edu-courses"><strong>Coursework:</strong> Agentic Information Retrieval Systems · Advanced Game Design &amp; Development · Analysis of Algorithms · Web Technologies</div>
+      </div>
+      <div class="edu-card anim">
+        <div class="edu-icon">🏛️</div>
+        <h3>Indira Gandhi Delhi Technical University for Women</h3>
+        <div class="degree">B.Tech in Information Technology</div>
+        <div class="dates">Aug 2017 - Aug 2021 · Delhi, India</div>
+        <div class="edu-gpa">GPA: 9.0 / 10.0</div>
+        <div class="edu-courses"><strong>Coursework:</strong> Data Structures &amp; Algorithms · Operating Systems · Object-Oriented Programming · Computer Architecture · Computer Networks · Discrete Mathematics · Foundations of AI · Machine Learning</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="wrap">
+    <div class="sh anim"><div class="sh-label">Experience</div><h2>Where I've worked</h2></div>
+    <div class="exp-list">
+
+      <div class="exp-item anim">
+        <div class="exp-left">
+          <h3>Software Engineer II</h3>
+          <div class="company">Deutsche Bank · DWS Group</div>
+          <div class="company-desc">Asset management division of Deutsche Bank, one of the world's largest investment managers with $800B+ in AUM.</div>
+        </div>
+        <div class="exp-right">
+          <div class="dates">Mar 2024 - Jul 2025 · Pune, India</div>
+          <ul class="exp-bullets">
+            <li>Owned end-to-end development of a client-facing trade processing dashboard (React + Spring Boot microservices) processing 10K+ daily trades with 80% reduction in data discrepancies - adopted as the primary reconciliation tool across trading desks.</li>
+            <li>Built real-time event-driven data pipelines using Python and Kafka Streams to ingest 15+ external financial APIs with circuit breakers, retry logic, and fault-tolerant error handling, cutting production incident rate by 40%.</li>
+            <li>Deployed containerized microservices on Kubernetes with Vault-managed secrets and distributed tracing, achieving 99.9% uptime SLA across 4 services.</li>
+            <li>Authored technical documentation on Kafka partitioning, microservices scalability, and API design patterns - adopted as onboarding reference material across the team.</li>
+          </ul>
         </div>
       </div>
-    </section>
 
-    <!-- EXPERIENCE -->
-    <section id="experience">
-      <div class="wrap">
-        <div class="sh anim"><div class="sh-label">Experience</div><h2>Where I've worked</h2></div>
-        <div class="exp-list">
-          <div class="exp-item anim">
-            <div class="exp-left">
-              <h3>Software Engineer II</h3>
-              <div class="company">Deutsche Bank, DWS Group</div>
-              <div class="company-desc">Asset Management division of Deutsche Bank, one of the world's largest investment managers, overseeing $800B+ in assets.</div>
-            </div>
-            <div class="exp-right">
-              <div class="dates">Mar 2024 – Jul 2025 &middot; Pune, India</div>
-                <li>Owned development of a client-facing trade processing dashboard (React + Spring Boot microservice) for portfolio and transaction management, handling 10K+ trades daily and improving trade data accuracy by 80%.</li>
-                <li>Designed and deployed Spring Boot microservices for data aggregation and JSON creation, and Python pipelines for calculation and processing, integrating with external financial APIs for trade status reconciliation across the transaction pipeline.</li>
-                <li>Improved system resilience across distributed services by implementing retry logic, circuit breakers, and monitoring dashboards, reducing cascading failure incidents and improving production stability.</li>
-                <li>Managed deployment orchestration using Kubernetes with Vault for secrets management and distributed tracing for end-to-end service observability across containerized services.</li>
-                <li>Authored technical documentation on Kafka partitioning, microservices scalability, and API design patterns, adopted as onboarding reference material for new and existing engineers across the team.</li>
-              </ul>
-            </div>
-          </div>
-          <div class="exp-item anim">
-            <div class="exp-left">
-              <h3>Software Engineer I</h3>
-              <div class="company">Deutsche Bank, DWS Group</div>
-            </div>
-            <div class="exp-right">
-              <div class="dates">Jul 2021 – Feb 2024 &middot; Pune, India</div>
-              <ul class="exp-bullets">
-                <li>Led migration of legacy monoliths to containerized microservices with CI/CD pipelines, improving release agility by 50% across 4 production rollouts and reducing deployment errors.</li>
-                <li>Built Kafka-based event-driven pipelines on Jenkins to ingest and validate raw transactions with automated compliance checks and error flagging, processing 5K+ daily transfers for real-time portfolio monitoring.</li>
-                <li>Designed trade data models and optimized PostgreSQL queries, reducing compliance reporting errors by 30% and resolving a critical service failure mid-release to ensure zero trading downtime.</li>
-                <li>Built Python data validation and transformation pipelines enforcing 80%+ consistency across downstream financial systems, supporting risk assessment and regulatory reporting.</li>
-              </ul>
-            </div>
-          </div>
-          <div class="exp-item anim">
-            <div class="exp-left">
-              <h3>SDE Intern</h3>
-              <div class="company">Deutsche Bank, RFT Department</div>
-            </div>
-            <div class="exp-right">
-              <div class="dates">Jun 2020 – Jul 2020 &middot; Remote, India</div>
-              <ul class="exp-bullets">
-                <li>Built a full-stack web platform using React, Spring MVC, and SQL to support internal innovations and hackathons.</li>
-                <li>Designed RESTful APIs for user authentication, lifecycle management, and workflow orchestration.</li>
-                <li>Participated in code reviews and agile sprints, contributing production-ready code to shared repositories.</li>
-              </ul>
-            </div>
-          </div>
+      <div class="exp-item anim">
+        <div class="exp-left">
+          <h3>Software Engineer I</h3>
+          <div class="company">Deutsche Bank · DWS Group</div>
+        </div>
+        <div class="exp-right">
+          <div class="dates">Jul 2021 - Feb 2024 · Pune, India</div>
+          <ul class="exp-bullets">
+            <li>Led migration of 3 legacy monoliths to containerized microservices with CI/CD pipelines, cutting deployment time from 2 weeks to 3 days across 4 production rollouts.</li>
+            <li>Built Kafka-based event-driven pipelines to ingest, validate, and process 5K+ daily streaming transactions with automated compliance checks, eliminating 100% of manual audit workflows.</li>
+            <li>Optimized PostgreSQL query plans and indexing for high-throughput data processing, reducing report generation time by 30%; owned production support including incident triage, root cause analysis, and hotfix deployments.</li>
+          </ul>
         </div>
       </div>
-    </section>
 
-    <!-- PROJECTS -->
-    <section id="projects">
-      <div class="wrap">
-        <div class="sh anim"><div class="sh-label">Projects &amp; Research</div><h2>Things I've built</h2></div>
-        <div class="project-grid">
-          <div class="project-card anim">
-            <span class="tag">Production, DWS Asset Management</span>
-            <h3>Order CR Dashboard, DWS Trade Platform</h3>
-            <p>Core transaction pipeline for DWS Asset Management, processing 20K+ trades/day. Led end-to-end architecture as primary engineer, microservices design, Kafka Streams event-driven workflows, and containerized deployment. Improved trade accuracy by 85% and release agility by 50%. One of 4 critical production systems delivered; led 1, deployed 2.</p>
-            <div class="project-stack"><span>Spring Boot</span><span>Kafka Streams</span><span>Hadoop</span><span>Docker</span><span>CI/CD</span></div>
-          </div>
-          <div class="project-card anim">
-            <span class="tag">Distributed Systems</span>
-            <h3>PopRadio</h3>
-            <p>High-concurrency music streaming backend built to handle thousands of simultaneous users without race conditions. Redis distributed locking eliminates contention on shared state; NGINX load balancing enables horizontal scale-out; Redis-MongoDB sync keeps engagement data consistent under load.</p>
-            <div class="project-stack"><span>MERN-stack</span><span>Redis</span><span>NGINX</span><span>Docker</span></div>
-            <a class="project-link" href="https://github.com/riajha-usc/PopRadio/tree/main/popradio" target="_blank">View on GitHub <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></a>
-          </div>
-          <div class="project-card anim">
-            <span class="tag">Full Stack, Cloud</span>
-            <h3>Event Search App</h3>
-            <p>Cloud-hosted event discovery platform with secure backend proxying, geolocation services, and persistent storage. RESTful endpoints deployed on Google App Engine with MongoDB for flexible event data and Angular for a responsive frontend.</p>
-            <div class="project-stack"><span>Angular</span><span>Flask</span><span>MongoDB</span><span>GCP</span></div>
-            <a class="project-link" href="https://github.com/riajha-usc/event-search-app" target="_blank">View on GitHub <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></a>
-            <a class="project-link" href="https://search-event-svc-98723.uc.r.appspot.com/" target="_blank">Live Project <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></a>
-          </div>
-          <div class="project-card anim">
-            <span class="tag">AI / LLM, Hackathon Runner-Up</span>
-            <h3>RAG Financial Assistant</h3>
-            <p>Runner-up at DWS Hackathon 2024. LLM-powered financial guidance assistant with document indexing, embedding pipelines, and semantic retrieval, cutting analyst lookup time from hours to minutes with grounded, low-latency outputs.</p>
-            <div class="project-stack"><span>LLM</span><span>RAG</span><span>Embeddings</span><span>Python</span></div>
-          </div>
-          <div class="project-card anim">
-            <span class="tag">Published Research, Springer 2023</span>
-            <h3>Check-Worthy Sentence Detection</h3>
-            <p>GRU-based deep learning framework for identifying claims that warrant fact-checking. Pre-trained word embeddings with gated recurrent units model long-range contextual dependencies. Published in Springer Neural Computing &amp; Applications. Research Excellence Award recipient.</p>
-            <div class="project-stack"><span>NLP</span><span>GRU</span><span>Deep Learning</span></div>
-            <a class="project-link" href="https://link.springer.com/article/10.1007/s00521-023-08300-x" target="_blank">Read paper <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></a>
-          </div>
+      <div class="exp-item anim">
+        <div class="exp-left">
+          <h3>SDE Intern</h3>
+          <div class="company">Deutsche Bank · RFT Department</div>
+        </div>
+        <div class="exp-right">
+          <div class="dates">Jun 2020 - Jul 2020 · Remote, India</div>
+          <ul class="exp-bullets">
+            <li>Built a full-stack web platform using React, Spring MVC, and SQL to support internal innovations and hackathons.</li>
+            <li>Designed RESTful APIs for user authentication, lifecycle management, and workflow orchestration.</li>
+          </ul>
         </div>
       </div>
-    </section>
 
-    <!-- SKILLS -->
-    <section id="skills">
-      <div class="wrap">
-        <div class="sh anim"><div class="sh-label">Skills</div><h2>What I work with</h2></div>
-        <div class="skills-cols">
-          <div class="skill-col anim"><h3>Languages</h3><ul><li>Python</li><li>Java</li><li>C++</li><li>JavaScript / TypeScript</li><li>SQL</li><li>HTML / CSS</li></ul></div>
-          <div class="skill-col anim"><h3>Frameworks</h3><ul><li>Spring Boot</li><li>React</li><li>Angular</li><li>Flask</li><li>Hibernate</li></ul></div>
-          <div class="skill-col anim"><h3>Systems</h3><ul><li>Microservices</li><li>Event-Driven Architecture</li><li>Kafka / Kafka Streams</li><li>Message Queues</li><li>REST APIs</li><li>Distributed Systems</li></ul></div>
-          <div class="skill-col anim"><h3>Databases</h3><ul><li>PostgreSQL</li><li>MySQL</li><li>MongoDB</li><li>Redis</li></ul></div>
-          <div class="skill-col anim"><h3>Cloud &amp; DevOps</h3><ul><li>Kubernetes</li><li>Docker</li><li>GCP</li><li>CI/CD</li><li>Jenkins</li><li>NGINX</li><li>Monitoring &amp; Logging</li></ul></div>
-          <div class="skill-col anim"><h3>AI / ML</h3><ul><li>LLM Integration</li><li>Agentic Pipelines</li><li>RAG Pipelines</li><li>NLP</li><li>Embeddings</li><li>Prompt Engineering</li></ul></div>
-          <div class="skill-col anim"><h3>CS Fundamentals</h3><ul><li>Data Structures &amp; Algorithms</li><li>Object-Oriented Design</li><li>Operating Systems</li><li>System Design</li></ul></div>
-          <div class="skill-col anim"><h3>Practices</h3><ul><li>Unit &amp; Integration Testing</li><li>JUnit / Mockito</li><li>Technical Documentation</li><li>Git</li><li>Agile / Scrum</li></ul></div>
-      </div>
-      </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <!-- FOOTER -->
-    <footer>
-      <div class="wrap">
-        <div class="footer-inner">
-          <div class="footer-msg">Let's build something <em>together.</em></div>
-          <div class="footer-links">
-            <a href="https://mail.google.com/mail/?view=cm&to=riajha02@gmail.com" target="_blank">Email</a>
-            <a href="https://github.com/riajha-usc" target="_blank">GitHub</a>
-            <a href="https://www.linkedin.com/in/ria-jha-17917315a/" target="_blank">LinkedIn</a>
-          </div>
-          <div class="footer-copy">&copy; 2026 Ria Jha &middot; Los Angeles, CA</div>
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="wrap">
+    <div class="sh anim"><div class="sh-label">Projects &amp; Research</div><h2>Things I've built</h2></div>
+    <div class="project-grid">
+
+      <div class="project-card featured anim">
+        <span class="project-tag amber">Full Stack · Web + Android · Cloud</span>
+        <h3>Event Search Platform</h3>
+        <p>Dual-platform event discovery app - Angular SPA and native Android client (Java, Retrofit 2, ViewPager2, FusedLocationProviderClient) sharing a single Express/MongoDB backend deployed to Google App Engine. Integrates Ticketmaster, Spotify, Google Geocoding, and IPInfo APIs via a server-side proxy for credential security. Features geohash proximity search, adaptive radius geocoding, Spotify OAuth2 token caching, RxJS-debounced autocomplete, and reactive BehaviorSubject favorites state.</p>
+        <div class="project-stack"><span>Angular 20</span><span>TypeScript</span><span>Node.js/Express</span><span>MongoDB Atlas</span><span>Java/Android</span><span>GCP App Engine</span><span>Retrofit 2</span><span>Geohash</span></div>
+        <div class="project-links">
+          <a class="project-link" href="https://search-event-svc-98723.uc.r.appspot.com/" target="_blank">Live demo <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></a>
+          <a class="project-link" href="https://github.com/riajha-usc/Events-Searching" target="_blank">GitHub <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></a>
         </div>
       </div>
-    </footer>
 
-    <script>
-      function toggleTheme() {
-        const html = document.documentElement;
-        const btn = document.getElementById('themeBtn');
-        const isDark = html.getAttribute('data-theme') === 'dark';
-        html.setAttribute('data-theme', isDark ? 'light' : 'dark');
-        btn.textContent = isDark ? '🌙 Dark' : '☀️ Light';
-        localStorage.setItem('theme', isDark ? 'light' : 'dark');
-      }
-      const saved = localStorage.getItem('theme');
-      if (saved) {
-        document.documentElement.setAttribute('data-theme', saved);
-        document.getElementById('themeBtn').textContent = saved === 'light' ? '🌙 Dark' : '☀️ Light';
-      }
-      const observer = new IntersectionObserver(
-        (entries) => { entries.forEach((entry,i) => { if(entry.isIntersecting){ setTimeout(()=>entry.target.classList.add("show"),i*60); observer.unobserve(entry.target); } }); },
-        { threshold: 0.1 }
-      );
-      document.querySelectorAll(".anim").forEach(el => observer.observe(el));
-    </script>
-  </body>
+      <div class="project-card anim">
+        <span class="project-tag">Distributed Systems</span>
+        <h3>PopRadio</h3>
+        <p>High-concurrency music streaming backend built to handle 100+ simultaneous users without race conditions. Redis distributed locking eliminates contention on shared state; NGINX load balancing enables horizontal scale-out; Redis-MongoDB write sync keeps engagement data consistent under load - the same concurrency patterns found in real-time gaming backends.</p>
+        <div class="project-stack"><span>Node.js</span><span>MongoDB</span><span>Redis</span><span>NGINX</span><span>Docker</span></div>
+        <div class="project-links">
+          <a class="project-link" href="https://github.com/riajha-usc/PopRadio/tree/main/popradio" target="_blank">View on GitHub <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></a>
+        </div>
+      </div>
+
+      <div class="project-card anim">
+        <span class="project-tag green">AI / Agentic · RAG</span>
+        <h3>Agentic RAG Financial Assistant</h3>
+        <p>Multi-step autonomous agent that retrieves, ranks, and synthesises financial documents via FAISS vector search over 1K+ embeddings. Tool-calling pipeline handles document retrieval, API ingestion, and LLM response generation - cutting analyst lookup time from hours to minutes with grounded, low-latency outputs.</p>
+        <div class="project-stack"><span>Python</span><span>LangChain</span><span>FAISS</span><span>PyTorch</span><span>RAG</span><span>Embeddings</span></div>
+        <div class="project-links">
+          <a class="project-link" href="https://github.com/riajha-usc/RAGenius" target="_blank">View on GitHub <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></a>
+        </div>
+      </div>
+
+      <div class="project-card anim">
+        <span class="project-tag">Published Research · Springer 2023</span>
+        <h3>Check-Worthy Sentence Detection</h3>
+        <p>Proposed the G2CW framework - a GloVe embedding + GRU pipeline for three-class check-worthiness detection (check-worthy, unimportant factual, non-factual). Trained on the complete 23K+ sentence ClaimBuster dataset - prior work used partial data and classical ML only - achieving 0.92 F1-score and surpassing the previous best of 0.81. Also curated IndianClaims, a novel 953-sentence dataset from Indian parliament debates, politician tweets, and PM statements. G2CW matched the strongest CNN and LSTM baselines while using the least training time (12.5 s). Published in Springer Neural Computing &amp; Applications. Research Excellence Award 2024.</p>
+        <div class="project-stack"><span>Python</span><span>GRU</span><span>GloVe Embeddings</span><span>NLP</span><span>Deep Learning</span><span>Multi-class Classification</span></div>
+        <div class="project-links">
+          <a class="project-link" href="https://link.springer.com/article/10.1007/s00521-023-08300-x" target="_blank">Read paper <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- AWARDS -->
+<section id="awards">
+  <div class="wrap">
+    <div class="sh anim"><div class="sh-label">Awards &amp; Honors</div><h2>Recognition</h2></div>
+    <div class="awards-grid">
+
+      <div class="award-card anim">
+        <div class="award-placement">Runner Up · Global</div>
+        <h3>DWS Group AI Hackathon</h3>
+        <div class="award-event">Deutsche Bank, Global Internal Competition</div>
+        <div class="award-desc">Built an AI-powered financial platform for personalised stock portfolio recommendation and optimisation, with a financial literacy module to reduce financial knowledge gaps for end users.</div>
+        <div class="award-year">2024</div>
+      </div>
+
+      <div class="award-card anim">
+        <div class="award-placement">3rd Place · 80+ Teams</div>
+        <h3>Microsoft for Startups AI Hackathon</h3>
+        <div class="award-event">External Competition · Bureau Challenge</div>
+        <div class="award-desc">Designed backend architecture for a transaction fraud detection system. Built Django REST APIs with RabbitMQ message queuing and trained a Random Forest classifier with custom feature engineering.</div>
+        <div class="award-year">2024</div>
+      </div>
+
+      <div class="award-card anim">
+        <div class="award-placement">Research Excellence Award</div>
+        <h3>Check-Worthy Sentence Detection</h3>
+        <div class="award-event">Published · Springer Neural Computing &amp; Applications</div>
+        <div class="award-desc">Proposed G2CW framework (GloVe + GRU) achieving 0.92 F1-score on 23K+ claims, surpassing the prior best of 0.81. Curated the IndianClaims dataset and demonstrated cross-domain transfer. Fastest training among all competing architectures.</div>
+        <div class="award-year">Award 2024 · Published 2023</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="wrap">
+    <div class="sh anim"><div class="sh-label">Skills</div><h2>What I work with</h2></div>
+    <div class="skills-cols">
+      <div class="skill-col anim"><h3>Languages</h3><ul><li>Python</li><li>Java</li><li>C++</li><li>JavaScript / TypeScript</li><li>SQL</li></ul></div>
+      <div class="skill-col anim"><h3>Backend</h3><ul><li>Spring Boot</li><li>Node.js / Express</li><li>Angular</li><li>Django / Flask</li><li>REST APIs · OAuth2</li></ul></div>
+      <div class="skill-col anim"><h3>Distributed Systems</h3><ul><li>Microservices</li><li>Kafka / Kafka Streams</li><li>Event-Driven Architecture</li><li>RabbitMQ</li><li>Redis</li></ul></div>
+      <div class="skill-col anim"><h3>Mobile</h3><ul><li>Android (Java)</li><li>Retrofit 2</li><li>ViewPager2</li><li>FusedLocationProvider</li><li>Material Design</li></ul></div>
+      <div class="skill-col anim"><h3>Cloud &amp; DevOps</h3><ul><li>AWS · GCP App Engine</li><li>Kubernetes · Docker</li><li>CI/CD · Jenkins</li><li>NGINX</li><li>Distributed Tracing</li></ul></div>
+      <div class="skill-col anim"><h3>Databases</h3><ul><li>PostgreSQL</li><li>MongoDB Atlas</li><li>MySQL</li><li>Redis</li></ul></div>
+      <div class="skill-col anim"><h3>AI / ML</h3><ul><li>PyTorch · scikit-learn</li><li>RAG Pipelines</li><li>FAISS · LangChain</li><li>NLP · Embeddings</li><li>Deep Learning (GRU)</li></ul></div>
+      <div class="skill-col anim"><h3>Practices</h3><ul><li>Data Structures &amp; Algorithms</li><li>System Design</li><li>JUnit · Mockito</li><li>Git · Agile / Scrum</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="footer-inner">
+      <div class="footer-msg">Let's build something <em>together.</em></div>
+      <div class="footer-links">
+        <a href="https://mail.google.com/mail/?view=cm&to=riajha02@gmail.com" target="_blank">Email</a>
+        <a href="https://github.com/riajha-usc" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/ria-jha-17917315a/" target="_blank">LinkedIn</a>
+      </div>
+      <div class="footer-copy">&copy; 2026 Ria Jha &middot; Los Angeles, CA</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleTheme() {
+    const html = document.documentElement;
+    const btn = document.getElementById('themeBtn');
+    const isDark = html.getAttribute('data-theme') === 'dark';
+    html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    btn.textContent = isDark ? '🌙 Dark' : '☀️ Light';
+    localStorage.setItem('theme', isDark ? 'light' : 'dark');
+  }
+  const saved = localStorage.getItem('theme');
+  if (saved) {
+    document.documentElement.setAttribute('data-theme', saved);
+    document.getElementById('themeBtn').textContent = saved === 'light' ? '🌙 Dark' : '☀️ Light';
+  }
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('show'), i * 70);
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.08 }
+  );
+  document.querySelectorAll('.anim').forEach(el => observer.observe(el));
+</script>
+</body>
 </html>
