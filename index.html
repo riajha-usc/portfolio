@@ -341,22 +341,22 @@
       </div>
 
       <div class="project-card anim">
+        <span class="project-tag green">AI / Agentic · RAG</span>
+        <h3>Agentic RAG Financial Assistant</h3>
+        <p>End-to-end RAG pipeline for natural-language Q&amp;A over SEC filings and earnings reports. Chunks and embeds documents into 384-dim vectors (sentence-transformers), indexes in FAISS for sub-millisecond similarity search, and generates grounded answers via flan-t5. What sets it apart is the evaluation layer: retrieval metrics (precision@K, MRR, MAP), faithfulness scoring for hallucination detection, and a prompt optimisation module using scikit-learn ParameterGrid that searches over templates, temperature, and top-K across 18 configurations - surfacing quality/latency tradeoffs. Served through a Flask REST API with 12 endpoints.</p>
+        <div class="project-stack"><span>Python</span><span>LangChain</span><span>FAISS</span><span>PyTorch</span><span>RAG</span><span>Embeddings</span></div>
+        <div class="project-links">
+          <a class="project-link" href="https://github.com/riajha-usc/RAGenius" target="_blank">View on GitHub <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></a>
+        </div>
+      </div>
+
+      <div class="project-card anim">
         <span class="project-tag">Distributed Systems</span>
         <h3>PopRadio</h3>
         <p>High-concurrency music streaming backend built to handle 100+ simultaneous users without race conditions. Redis distributed locking eliminates contention on shared state; NGINX load balancing enables horizontal scale-out; Redis-MongoDB write sync keeps engagement data consistent under load - the same concurrency patterns found in real-time gaming backends.</p>
         <div class="project-stack"><span>Node.js</span><span>MongoDB</span><span>Redis</span><span>NGINX</span><span>Docker</span></div>
         <div class="project-links">
-          <a class="project-link" href="https://github.com/riajha-usc/PopRadio/tree/main/popradio" target="_blank">View on GitHub <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></a>
-        </div>
-      </div>
-
-      <div class="project-card anim">
-        <span class="project-tag green">AI / Agentic · RAG</span>
-        <h3>Agentic RAG Financial Assistant</h3>
-        <p>Multi-step autonomous agent that retrieves, ranks, and synthesises financial documents via FAISS vector search over 1K+ embeddings. Tool-calling pipeline handles document retrieval, API ingestion, and LLM response generation - cutting analyst lookup time from hours to minutes with grounded, low-latency outputs.</p>
-        <div class="project-stack"><span>Python</span><span>LangChain</span><span>FAISS</span><span>PyTorch</span><span>RAG</span><span>Embeddings</span></div>
-        <div class="project-links">
-          <a class="project-link" href="https://github.com/riajha-usc/RAGenius" target="_blank">View on GitHub <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></a>
+          <a class="project-link" href="https://github.com/riajha-usc/PopRadio" target="_blank">View on GitHub <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></a>
         </div>
       </div>
 
